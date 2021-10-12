@@ -18,9 +18,18 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "@babel/polyfill": "7.11.5",
+        "@fortawesome/fontawesome-free": "5.14.0",
         "@popperjs/core": "^2.10.2",
         "autoprefixer": "^10.3.7",
         "bootstrap": "^5.0.0-beta3",
-        "postcss-loader": "^6.1.1"
+        "chart.js": "^2.9.4",
+        "feather-icons": "4.28.0",
+        "flatpickr": "4.6.6",
+        "jsvectormap": "1.1.1",
+        "moment": "2.28.0",
+        "popper.js": "1.16.1",
+        "postcss-loader": "^6.1.1",
+        "simplebar": "5.2.1"
     }
 }
