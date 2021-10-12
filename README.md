@@ -10,9 +10,12 @@ https://github.com/Spealner/ECF-RD_Temp.git
 
 # Environnement de développement :
 
+### Pré-requis :
+
 * PHP 7.4
 * Composer
 * Symfony CLI
+* Nodejs et npm
 
 Vous pouvez vérifier les pré-requis avec la commande suivante (de la CLI Symfony) :
 
@@ -23,6 +26,9 @@ symfony check:requirements
 ### Lancer l'environnement de développement :
 
 ```npm
+composer install
+npm install
+npm run build
 symfony serve -d
 ```
 
@@ -31,3 +37,4 @@ symfony serve -d
 ```npm
 php bin/phpunit --testdox
 ```
+
