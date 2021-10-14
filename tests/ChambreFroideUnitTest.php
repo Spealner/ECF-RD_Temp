@@ -11,12 +11,12 @@ class ChambreFroideUnitTest extends TestCase
     {
         $chambreFroide = new chambreFroide();
 
-        $chambreFroide->setNom('nom')
-            ->setSousTitre('sousTitre')
+        $chambreFroide->setTitle('title')
+            ->setSubtitle('subtitle')
             ->setDescription('description');
 
-        $this->assertTrue($chambreFroide->getNom() === 'nom');
-        $this->assertTrue($chambreFroide->getSousTitre() === 'sousTitre');
+        $this->assertTrue($chambreFroide->getTitle() === 'title');
+        $this->assertTrue($chambreFroide->getSubtitle() === 'subtitle');
         $this->assertTrue($chambreFroide->getDescription() === 'description');
     }
 
@@ -24,12 +24,12 @@ class ChambreFroideUnitTest extends TestCase
     {
         $chambreFroide = new chambreFroide();
 
-        $chambreFroide->setNom('nom')
-            ->setSousTitre('sousTitre')
+        $chambreFroide->setTitle('title')
+            ->setSubtitle('subtitle')
             ->setDescription('description');
 
-        $this->assertFalse($chambreFroide->getNom() === 'false');
-        $this->assertFalse($chambreFroide->getSousTitre() === 'false');
+        $this->assertFalse($chambreFroide->getTitle() === 'false');
+        $this->assertFalse($chambreFroide->getSubtitle() === 'false');
         $this->assertFalse($chambreFroide->getDescription() === 'false');
     }
 
@@ -37,8 +37,8 @@ class ChambreFroideUnitTest extends TestCase
     {
         $chambreFroide = new chambreFroide();
 
-        $this->assertEmpty($chambreFroide->getNom());
-        $this->assertEmpty($chambreFroide->getSousTitre());
+        $this->assertEmpty($chambreFroide->getTitle());
+        $this->assertEmpty($chambreFroide->getSubtitle());
         $this->assertEmpty($chambreFroide->getDescription());
     }
 }
