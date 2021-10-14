@@ -20,12 +20,12 @@ class ChambreFroide
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nom;
+    private $title;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $sousTitre;
+    private $subtitle;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -37,31 +37,36 @@ class ChambreFroide
      */
     private $date;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $file;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNom(): ?string
+    public function getTitle(): ?string
     {
-        return $this->nom;
+        return $this->title;
     }
 
-    public function setNom(string $nom): self
+    public function setTitle(string $title): self
     {
-        $this->nom = $nom;
+        $this->title = $title;
 
         return $this;
     }
 
-    public function getSousTitre(): ?string
+    public function getSubtitle(): ?string
     {
-        return $this->sousTitre;
+        return $this->subtitle;
     }
 
-    public function setSousTitre(string $sousTitre): self
+    public function setSubtitle(string $subtitle): self
     {
-        $this->sousTitre = $sousTitre;
+        $this->subtitle = $subtitle;
 
         return $this;
     }
@@ -86,6 +91,18 @@ class ChambreFroide
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getFile(): ?string
+    {
+        return $this->file;
+    }
+
+    public function setFile(string $file): self
+    {
+        $this->file = $file;
 
         return $this;
     }
