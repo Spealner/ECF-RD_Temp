@@ -1,4 +1,4 @@
-<!-- ARTICLES -->
+<!-- LASTTEMP -->
 <section class="pt-8 pt-md-11">
     <div class="container" style="margin-bottom: 15px">
         <div class="row">
@@ -18,15 +18,16 @@
         </div>
         <!-- / .row -->
         <div class="row">
+            {% for chambreFroide in chambreFroides %}
             <div class="col-12">
 
                 <!-- Card -->
                 <div class="card card-row shadow-light-lg mb-6">
                     <div class="row gx-0">
-                        <a class="col-12 col-md-6 bg-cover card-img-start" style="background-image: url('/img/placeholder.jpg');" href="#!">
+                        <a class="col-12 col-md-6 bg-cover card-img-start" style="background-image: url({{ chambreFroide.file }});" href="#!">
 
                             <!-- Image (placeholder) -->
-                            <img src="public/img/placeholder.jpg" alt="..." class="img-fluid d-m-none invisible">
+                            <img src="{{ chambreFroide.file }}" alt="..." class="img-fluid d-m-none invisible">
 
                         </a>
                         <div class="col-12 col-md-6">
@@ -35,12 +36,12 @@
                             <a class="card-body" href="#!">
 
                                 <!-- Heading -->
-                                    <h3>Chambre froide n°: </h3>
+                                    <h3>Chambre froide n°: {{ chambreFroide.title}} </h3>
                                     <h4>OFF du </h4>
 
                                 <!-- Text -->
                                 <p class="mb-0 text-muted">
-                                    Relever de température
+                                    Relever de température : {{ chambreFroide.description|u.truncate(200, '...', false) }}
                                 </p>
                             </a>
 
@@ -52,13 +53,16 @@
 
                                 <!-- Date d'ajout -->
                                 <p class="h6 text-uppercase text-muted mb-0 ms-auto">
-                                    <time datetime="2021-10-13">Ajouté le 10/13/2021</time>
+                                    <time>
+                                        Ajouté le : {{ chambreFroide.date|date('d/m/Y') }}
+                                    </time>
                                 </p>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
         <!-- / .row -->
     </div>

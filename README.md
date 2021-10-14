@@ -32,6 +32,12 @@ npm run build
 symfony serve -d
 ```
 
+### Ajouter des données de tests
+
+```npm
+symfony console doctrine:fixtures:load
+```
+
 ## Lancer des tests :
 
 ```npm

@@ -19,6 +19,18 @@ class ChambreFroideRepository extends ServiceEntityRepository
         parent::__construct($registry, ChambreFroide::class);
     }
 
+    /**
+     * @return ChambreFroide[] Returns an array of ChambreFroide Objects
+     */
+    public function lastTree()
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return ChambreFroide[] Returns an array of ChambreFroide objects
     //  */
