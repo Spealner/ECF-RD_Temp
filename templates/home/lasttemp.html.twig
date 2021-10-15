@@ -5,13 +5,35 @@
             <div class="col-12">
 
                 <!-- Heading -->
-                <h2 class="mb-0">
-                    Derniers relever
+                <h2 class="mb-0"
+                    style="background-color: #28A5C5;
+                        border-radius: 5px;
+                        color: #FFF;
+                        font-size: 5rem;
+                        text-align: center;
+                        width: 55%;
+                        margin-top: 15px;
+                        display: block;
+                        margin-right: auto;
+                        margin-left: auto;
+                    ">
+                    Derniers relever :
                 </h2>
 
                 <!-- -->
-                <p class="mb-5 text-muted">
-                    Affichages des relever de température
+                <p class="mb-5 text-muted"
+                   style="background-color: #28A5C5;
+                        border-radius: 5px;
+                        color: white;
+                        font-size: 2rem;
+                        text-align: center;
+                        width: 30%;
+                        margin-top: 15px;
+                        display: block;
+                        margin-right: auto;
+                        margin-left: auto;
+                   ">
+                    Affichages des derniers relever de température :
                 </p>
 
             </div>
@@ -24,16 +46,16 @@
                 <!-- Card -->
                 <div class="card card-row shadow-light-lg mb-6">
                     <div class="row gx-0">
-                        <a class="col-12 col-md-6 bg-cover card-img-start" style="background-image: url({{ chambreFroide.file }});" href="#!">
+                        <p class="col-12 col-md-6 bg-cover card-img-start" style="background-image: url({{ chambreFroide.file }}); ; margin-top: 15px">
 
                             <!-- Image (placeholder) -->
-                            <img src="{{ chambreFroide.file }}" alt="..." img-fluid d-m-none invisible">
+                            <img src="{{ chambreFroide.file }}" width="646" height="255" alt="...">
 
-                        </a>
+                        </p>
                         <div class="col-12 col-md-6">
 
                             <!-- Body -->
-                            <a class="card-body" href="#!">
+                            <p class="card-body">
 
                                 <!-- Heading -->
                                     <h3>Chambre froide n°: {{ chambreFroide.title}} </h3>
@@ -43,10 +65,10 @@
                                 <p class="mb-0 text-muted">
                                     Relever de température : {{ chambreFroide.description|u.truncate(200, '...', false) }}
                                 </p>
-                            </a>
+                            </p>
 
                             <!-- Meta -->
-                            <a class="card-meta">
+                            <p class="card-meta">
 
                                 <!-- Créateur -->
                                 <hr class="card-meta-divider">
@@ -57,7 +79,7 @@
                                         Ajouté le : {{ chambreFroide.date|date('d/m/Y') }}
                                     </time>
                                 </p>
-                            </a>
+                            </p>
                         </div>
                     </div>
                 </div>
