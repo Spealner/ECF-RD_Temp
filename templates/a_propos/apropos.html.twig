@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}A Propos de RD-Temp{% endblock %}
+
+{% block body %}
+    <!-- APROPOS -->
+    <section
+        class="py-10 py-md-14 overlay overlay-black overlay-60 bg-cover"
+        style="background-image: url('/img/ecf.jpg');
+            background-size: 100%;
+            background-position: center;
+            margin-right: 15px;
+            margin-left: 15px;
+    ">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-8 text-center">
+
+                    <!-- Heading -->
+                    <h1 class="display-2 text-white">
+                        RD-Temp
+                    </h1>
+
+                    <!-- TEXT -->
+                    <p class="lead text-white-50 mb-6">
+                        PME bordelaise spécialisée dans la réfrigération
+                    </p>
+
+                    <p class="lead text-white mb-6">
+                        Depuis 2010, RD Temp est une PME bordelaise spécialisée dans la réfrigération, animée par
+                        une équipe ayant une expérience de plus de 20 ans dans le secteur du froid. Partenaire
+                        privilégié des officines pharmaceutiques, RD Temp installe et fait la maintenance, pour ces
+                        dernières, de chambres froides où seront stockés tous médicaments et vaccin.
+
+                        Grâce à des sondes incorporées, la société récupère en interne, à chaque quart d’heure, les
+                        valeurs de température et d’hygrométrie de toutes les chambres froides.
+                        Pour combler la demande régulière des officines, RD Temp souhaite dorénavant leur
+                        proposer un accès sécurisé afin qu’elles puissent examiner les données de chaque journée
+                        sous forme de courbes graphiques.
+                    </p>
+
+                    <section class="pt-8 pt-md-11">
+                        <div class="container" style="margin-bottom: 15px">
+                            <div class="row">
+                                <div class="col-12">
+
+                                    <!-- Heading -->
+                                    <h2 class="mb-0"
+                                        style="background-color: #28A5C5;
+                                            border-radius: 5px;
+                                            color: #FFF;
+                                            font-size: 5rem;
+                                            text-align: center;
+                                            width: 55%;
+                                            margin-top: 15px;
+                                            display: block;
+                                            margin-right: auto;
+                                            margin-left: auto;
+                                    ">
+                                        Officines :
+                                    </h2>
+
+                                </div>
+                            </div>
+                            <!-- / .row -->
+                            <div class="row">
+                                {% for user in users %}
+                                    <div class="col-12">
+
+                                        <!-- Card -->
+                                        <div class="card card-row shadow-light-lg mb-6" style="margin-top: 15px">
+                                            <div class="row gx-0">
+                                                <div class="col-12 col-md-6">
+
+                                                    <!-- Body -->
+                                                    <p class="card-body">
+
+                                                        <!-- Heading -->
+                                                    <h3>Officine : {{ user.nom}} </h3>
+                                                    <h3>Technicien : {{ user.nom}} </h3>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <!-- / .row -->
+                        </div>
+                        <!-- / .container -->
+                    </section>
+
+                    <!-- Button -->
+                    <a href="{{ path('home') }}" class="btn btn-primary" style="margin-bottom: 20px">
+                        Revenir à l'acceuil
+                        <i class="fe fe-arrow-right ms-3"></i>
+                    </a>
+
+                </div>
+            </div>
+            <!-- / .row -->
+        </div>
+        <!-- / .container -->
+    </section>
+{% endblock %}

@@ -23,20 +23,22 @@ class AppFixtures extends Fixture
         $faker = Factory::create('fr_FR');
 
         // Creation d'un fake utilisateur
-        $user = new User();
+            $user = new User();
 
-        $user->setEmail('user@test.com')
-            ->setNom($faker->lastName())
-            ->setAdresse($faker->address())
-            ->setVille($faker->city())
-            ->setTelephone($faker->phoneNumber());
+            $user->setEmail('user@test.com')
+                ->setNom($faker->lastName())
+                ->setAdresse($faker->address())
+                ->setVille($faker->city())
+                ->setTelephone($faker->phoneNumber())
+                ->setRoles(['ROLE_OFFICINE']);
 
-        $password = $this->encoder->encodePassword($user, 'password');
-        $user->setPassword($password);
+            $password = $this->encoder->encodePassword($user, 'password');
+            $user->setPassword($password);
 
-        $manager->persist($user);
+            $manager->persist($user);
 
-        // Creation d'une fake ChambreFroide
+
+        // Creation de plusieurs fakes ChambreFroides
         for ($i=0; $i < 10; $i++) {
             $chambreFroide = new ChambreFroide();
 
