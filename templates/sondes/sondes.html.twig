@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sondes{% endblock %}
+
+{% block body %}
+    <!-- SONDES -->
+    <section class="pt-7 pt-md-10">
+        <div class="container" style="margin-bottom: 15px">
+            <div class="row">
+                <div class="col-12">
+
+                    <!-- Heading -->
+                    <h2
+                        class="mb-0"
+                        style="background-color: #28A5C5;
+                            border-radius: 5px;
+                            color: #FFF;
+                            font-size: 5rem;
+                            text-align: center;
+                            width: 70%;
+                            margin-top: 15px;
+                            display: block;
+                            margin-right: auto;
+                            margin-left: auto;
+                        ">
+                        Affichages des relever de température :
+                    </h2>
+                    <hr class="card-meta-diviser">
+
+                </div>
+            </div>
+            <!-- / .row -->
+            {% for chambreFroide in chambreFroides %}
+                <div class="col-12 col-md-6 d-flex">
+                    <div class="card mb-6 shadow-lg">
+
+                        <!-- Card -->
+                        <a class="card-img-top" href="#!"
+                           style="background-image: url({{ chambreFroide.file }})"
+                        >
+                            <img src="{{ asset(chambreFroide.file) }}" alt="..." style="width: 646px; height: 200px" class="card-img-top">
+                        </a>
+
+                        <a class="card-body" href="#!">
+                            <h3>
+                                {{ chambreFroide.title }}
+                            </h3>
+                            <p class="mb-0 text-muted">
+                                {{ chambreFroide.description|u.truncate(200, '...', false) }}
+                            </p>
+                        </a>
+                        <a class="card-meta mt-auto" href="#!">
+                            <hr class="card-meta-diviser">
+                            <p class="h6 text-uppercase text-muted mb-0 ms-auto">
+                                <time>Ajouté le : {{ chambreFroide.date|date('d/m/Y') }}</time>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <!-- / .row -->
+        </div>
+        <!-- / .container -->
+        <div class="d-flex">
+            {% do chambreFroides.setPageRange(2) %}
+            {{ knp_pagination_render(chambreFroides, 'base/pagination.html.twig') }}
+        </div>
+    </section>
+{% endblock %}

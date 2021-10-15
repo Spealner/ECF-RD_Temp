@@ -1,9 +1,9 @@
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="font-size: 1.3rem">
     <div class="container-fluid">
         <!-- Brand -->
-        <a class="navbar-brand" href="./index.html">
+        <a class="navbar-brand" href="{{ path('home') }}">
         </a>
 
         <!-- Toggler -->
@@ -24,7 +24,7 @@
             <!-- Navigation -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">
+                    <a class="nav-link active" aria-current="page" href="{{ path('home') }}">
                         Menu
                     </a>
                 </li>
@@ -43,8 +43,10 @@
                         Catégorie
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Catégorie 1</a></li>
-                        <li><a class="dropdown-item" href="#">Catégorie 2</a></li>
+                        <li><a class="dropdown-item" href="#">Chambres Froides</a></li>
+                        <li><a class="dropdown-item" href="{{ path('sondes') }}">Sondes</a></li>
+                        <li><a class="dropdown-item" href="#">Catégorie 3</a></li>
+                        <li><a class="dropdown-item" href="#">Catégorie 4</a></li>
                         <li><hr class="dropdown-divider"></li>
                     </ul>
                 </li>
