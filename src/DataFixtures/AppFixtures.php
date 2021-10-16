@@ -46,6 +46,7 @@ class AppFixtures extends Fixture
                 ->setSubtitle($faker->word())
                 ->setDescription($faker->text())
                 ->setFile('/img/placeholder.jpg')
+                ->setAuthor($faker->word())
                 ->setDate($faker->dateTimeBetween('-6 days', '-1 days'));
 
             $manager->persist($chambreFroide);

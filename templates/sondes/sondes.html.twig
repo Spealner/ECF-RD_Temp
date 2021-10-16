@@ -38,7 +38,12 @@
                         <a class="card-img-top" href="#!"
                            style="background-image: url({{ chambreFroide.file }})"
                         >
-                            <img src="{{ asset(chambreFroide.file) }}" alt="..." style="width: 646px; height: 200px" class="card-img-top">
+                            <img src="{{ asset(chambreFroide.file) }}"
+                                 alt="..."
+                                 style="width: 646px;
+                                        height: 200px"
+                                 class="card-img-top"
+                            >
                         </a>
 
                         <a class="card-body" href="#!">
@@ -49,10 +54,17 @@
                                 {{ chambreFroide.description|u.truncate(200, '...', false) }}
                             </p>
                         </a>
-                        <a class="card-meta mt-auto" href="#!">
+                        <a class="card-meta mt-auto"
+                           href="#!"
+                           style="margin-left: 10px;
+                                  margin-bottom: 5px
+                        ">
                             <hr class="card-meta-diviser">
                             <p class="h6 text-uppercase text-muted mb-0 ms-auto">
                                 <time>Ajouté le : {{ chambreFroide.date|date('d/m/Y') }}</time>
+                            </p>
+                            <p class="h6 text-uppercase text-muted mb-0 ms-auto">
+                                Auteur : {{ chambreFroide.author }}
                             </p>
                         </a>
                     </div>

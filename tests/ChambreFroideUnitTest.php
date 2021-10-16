@@ -13,11 +13,14 @@ class ChambreFroideUnitTest extends TestCase
 
         $chambreFroide->setTitle('title')
             ->setSubtitle('subtitle')
-            ->setDescription('description');
+            ->setDescription('description')
+            ->setAuthor('author');
+
 
         $this->assertTrue($chambreFroide->getTitle() === 'title');
         $this->assertTrue($chambreFroide->getSubtitle() === 'subtitle');
         $this->assertTrue($chambreFroide->getDescription() === 'description');
+        $this->assertTrue($chambreFroide->getAuthor() === 'author');
     }
 
     public function testIsFalse()
@@ -26,11 +29,13 @@ class ChambreFroideUnitTest extends TestCase
 
         $chambreFroide->setTitle('title')
             ->setSubtitle('subtitle')
-            ->setDescription('description');
+            ->setDescription('description')
+            ->setAuthor('author');
 
         $this->assertFalse($chambreFroide->getTitle() === 'false');
         $this->assertFalse($chambreFroide->getSubtitle() === 'false');
         $this->assertFalse($chambreFroide->getDescription() === 'false');
+        $this->assertFalse($chambreFroide->getAuthor() === 'false');
     }
 
     public function testIsEmpty()
@@ -40,5 +45,6 @@ class ChambreFroideUnitTest extends TestCase
         $this->assertEmpty($chambreFroide->getTitle());
         $this->assertEmpty($chambreFroide->getSubtitle());
         $this->assertEmpty($chambreFroide->getDescription());
+        $this->assertEmpty($chambreFroide->getAuthor());
     }
 }
