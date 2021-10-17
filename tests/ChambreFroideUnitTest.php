@@ -3,6 +3,7 @@
 namespace App\Tests;
 
 use App\Entity\ChambreFroide;
+use App\Entity\User;
 use PHPUnit\Framework\TestCase;
 
 class ChambreFroideUnitTest extends TestCase
@@ -10,32 +11,34 @@ class ChambreFroideUnitTest extends TestCase
     public function testIsTrue()
     {
         $chambreFroide = new chambreFroide();
+        $user = new User();
 
         $chambreFroide->setTitle('title')
             ->setSubtitle('subtitle')
             ->setDescription('description')
-            ->setAuthor('author');
+            ->setUser($user);
 
 
         $this->assertTrue($chambreFroide->getTitle() === 'title');
         $this->assertTrue($chambreFroide->getSubtitle() === 'subtitle');
         $this->assertTrue($chambreFroide->getDescription() === 'description');
-        $this->assertTrue($chambreFroide->getAuthor() === 'author');
+        $this->assertTrue($chambreFroide->getUser() === $user);
     }
 
     public function testIsFalse()
     {
         $chambreFroide = new chambreFroide();
+        $user = new User();
 
         $chambreFroide->setTitle('title')
             ->setSubtitle('subtitle')
             ->setDescription('description')
-            ->setAuthor('author');
+            ->setUser($user);
 
         $this->assertFalse($chambreFroide->getTitle() === 'false');
         $this->assertFalse($chambreFroide->getSubtitle() === 'false');
         $this->assertFalse($chambreFroide->getDescription() === 'false');
-        $this->assertFalse($chambreFroide->getAuthor() === 'false');
+        $this->assertFalse($chambreFroide->getUser() === new User());
     }
 
     public function testIsEmpty()
@@ -45,6 +48,6 @@ class ChambreFroideUnitTest extends TestCase
         $this->assertEmpty($chambreFroide->getTitle());
         $this->assertEmpty($chambreFroide->getSubtitle());
         $this->assertEmpty($chambreFroide->getDescription());
-        $this->assertEmpty($chambreFroide->getAuthor());
+        $this->assertEmpty($chambreFroide->getUser());
     }
 }

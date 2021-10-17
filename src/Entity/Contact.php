@@ -37,11 +37,6 @@ class Contact
      */
     private $createdAt;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $isSend;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -91,18 +86,6 @@ class Contact
     public function setCreatedAt(\DateTimeImmutable $createdAt): self
     {
         $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    public function getIsSend(): ?bool
-    {
-        return $this->isSend;
-    }
-
-    public function setIsSend(bool $isSend): self
-    {
-        $this->isSend = $isSend;
 
         return $this;
     }

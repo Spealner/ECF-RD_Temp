@@ -37,7 +37,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
 
     /**
-     * Pour récuperer Les Officines
+     * Pour récupérer Les Officines
      */
     public function getOfficine()
     {
@@ -48,7 +48,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->getOneOrNullResult();
     }
     /**
-     * Pour récuperer les Techniciens
+     * Pour récupérer les Techniciens
      */
     public function getTechnicien()
     {
