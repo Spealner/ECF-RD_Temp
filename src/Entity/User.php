@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -25,9 +27,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $email;
 
     /**
-     * @ORM\Column(type="json")
+     * @ORM\ManyToMany(targetEntity=Roles::class, mappedBy="users")
      */
-    private $roles = [];
+    private $roles;
+
+    public function __construct()
+    {
+        $this->chambreFroide = new ArrayCollection();
+        $this->roles = new ArrayCollection();
+    }
 
     /**
      * @var string The hashed password
@@ -54,6 +62,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $telephone;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ChambreFroide::class, mappedBy="user")
+     */
+    private $chambreFroide;
 
     public function getId(): ?int
     {
@@ -92,19 +105,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @see UserInterface
+     * @return Collection|Roles[]
      */
-    public function getRoles(): array
+    public function getRoles(): Collection
     {
-        $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
-
-        return array_unique($roles);
+        return $this->roles;
     }
 
-    public function setRoles(array $roles): self
+    public function addRole(Roles $roles): self
     {
-        $this->roles = $roles;
+        if (!$this->roles->contains($roles)) {
+            $this->roles[] = $roles;
+            $roles->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRole(Roles $roles): self
+    {
+        if ($this->roles->contains($roles)) {
+            $this->roles->removeElement($roles);
+            $roles->removeUser($this);
+        }
 
         return $this;
     }
@@ -188,6 +211,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setTelephone(string $telephone): self
     {
         $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    public function getChambreFroide(): Collection
+    {
+        return $this->chambreFroide;
+    }
+
+    public function addChambreFroide(chambreFroide $chambreFroide): self
+    {
+        if (!$this->chambreFroide->contains($chambreFroide)) {
+            $this->chambreFroide[] = $chambreFroide;
+            $chambreFroide->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChambreFroide(ChambreFroide $chambreFroide): self
+    {
+        if ($this->chambreFroide->contains($chambreFroide)) {
+            $this->chambreFroide->removeElement($chambreFroide);
+            if ($chambreFroide->getUser() === $this) {
+                $chambreFroide->setUser(null);
+            }
+        }
 
         return $this;
     }
