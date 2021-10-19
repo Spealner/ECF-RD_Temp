@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -27,15 +26,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $email;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Roles::class, mappedBy="users")
+     * @ORM\Column(type="json")
      */
-    private $roles;
-
-    public function __construct()
-    {
-        $this->chambreFroide = new ArrayCollection();
-        $this->roles = new ArrayCollection();
-    }
+    private array $roles = [];
 
     /**
      * @var string The hashed password
@@ -101,35 +94,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getUsername(): string
     {
         return (string) $this->email;
-    }
-
-    /**
-     * @see UserInterface
-     * @return Collection|Roles[]
-     */
-    public function getRoles(): Collection
-    {
-        return $this->roles;
-    }
-
-    public function addRole(Roles $roles): self
-    {
-        if (!$this->roles->contains($roles)) {
-            $this->roles[] = $roles;
-            $roles->addUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRole(Roles $roles): self
-    {
-        if ($this->roles->contains($roles)) {
-            $this->roles->removeElement($roles);
-            $roles->removeUser($this);
-        }
-
-        return $this;
     }
 
     /**
@@ -238,6 +202,25 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $chambreFroide->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
 
         return $this;
     }
