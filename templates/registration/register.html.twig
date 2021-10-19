@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}S'enregistrer{% endblock %}
+
+{% block body %}
+    <!-- CONTENT -->
+    <section
+            style=" background-color: #504e4e;
+                    color: #18DCFF;
+            ">
+        <div class="container d-flex flex-column">
+            <div class="row align-items-center justify-content-center gx-0 min-vh-100">
+                <div class="col-12 col-md-6 col-lg-4 py-8 py-md-11">
+
+                    <!-- Heading -->
+                    <h1 class="mb-0 fw-bold" style="text-align: center">
+                        S'enregistrer
+                    </h1>
+
+                    <!-- TEXT -->
+                    <p class="mb-6 text-muted" style="text-align: center">
+                        Remplissez tous les champs
+                    </p>
+                    <form method="post" class="mb-6">
+                    {{ form_start(registrationForm) }}
+                    {{ form_row(registrationForm.email) }}
+                    {{ form_row(registrationForm.nom) }}
+                    {{ form_row(registrationForm.adresse) }}
+                    {{ form_row(registrationForm.ville) }}
+                    {{ form_row(registrationForm.telephone) }}
+                    {{ form_row(registrationForm.plainPassword, {
+                        label: 'Password'
+                    }) }}
+                    {{ form_row(registrationForm.agreeTerms) }}
+
+                    <button type="submit"
+                        class="btn"
+                        style="font-size: 1.3rem;
+                            margin-top: 15px;
+                            color: #cec950;
+                            border: none;
+                            cursor: pointer;
+                            transition: .2s;
+                            width: 100%;
+                        ">
+                        S'enregistrer
+                    </button>
+                    {{ form_end(registrationForm) }}
+                    </form>
+                </div>
+            </div>
+            <!-- / .row -->
+        </div>
+        <!-- / .container -->
+    </section>
+{% endblock %}
