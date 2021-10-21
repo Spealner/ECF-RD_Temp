@@ -30,7 +30,12 @@ class ChambreFroide
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $description;
+    private $temperatures;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $hygrometries;
 
     /**
      * @ORM\Column(type="date")
@@ -40,13 +45,13 @@ class ChambreFroide
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $file;
+    private $temprelever;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="chambreFroide")
      */
-    private $user;
+    private $hygrorelever;
+
 
     public function getId(): ?int
     {
@@ -77,14 +82,14 @@ class ChambreFroide
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getTemperatures(): ?string
     {
-        return $this->description;
+        return $this->temperatures;
     }
 
-    public function setDescription(string $description): self
+    public function setTemperatures(string $temperatures): self
     {
-        $this->description = $description;
+        $this->temperatures = $temperatures;
 
         return $this;
     }
@@ -101,27 +106,43 @@ class ChambreFroide
         return $this;
     }
 
-    public function getFile(): ?string
+    public function getTempRelever(): ?string
     {
-        return $this->file;
+        return $this->temprelever;
     }
 
-    public function setFile(string $file): self
+    public function setTempRelever(string $tempRelever): self
     {
-        $this->file = $file;
+        $this->temprelever = $tempRelever;
 
         return $this;
     }
 
-    public function getUser(): ?User
+    public function getHygroRelever(): ?string
     {
-        return $this->user;
+        return $this->hygrorelever;
     }
 
-    public function setUser(?User $user): self
+    public function setHygroRelever(string $hygroRelever): self
     {
-        $this->user = $user;
+        $this->hygrorelever = $hygroRelever;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHygrometries()
+    {
+        return $this->hygrometries;
+    }
+
+    /**
+     * @param mixed $hygrometries
+     */
+    public function setHygrometries(string $hygrometries): void
+    {
+        $this->hygrometries = $hygrometries;
     }
 }

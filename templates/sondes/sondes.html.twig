@@ -7,7 +7,7 @@
     <section class="pt-7 pt-md-10">
         <div class="container" style="margin-bottom: 15px">
             <div class="row">
-                <div class="col-12">
+               <div class="col-12">
 
                     <!-- Heading -->
                     <h2
@@ -35,25 +35,20 @@
                     <div class="card mb-6 shadow-lg">
 
                         <!-- Card -->
-                        <a class="card-img-top" href="#!"
-                           style="background-image: url({{ chambreFroide.file }})"
-                        >
-                            <img src="{{ asset(chambreFroide.file) }}"
-                                 alt="..."
-                                 style="width: 646px;
-                                        height: 200px"
-                                 class="card-img-top"
-                            >
-                        </a>
-
-                        <a class="card-body" href="#!">
+                        <a class="card-body" href="{{ path('details_sondes', {'id': chambreFroide.id}) }}">
                             <h3>
                                 {{ chambreFroide.title }}
                             </h3>
-                            <p class="mb-0 text-muted">
-                                {{ chambreFroide.description|u.truncate(200, '...', false) }}
-                            </p>
+                            <h4>
+                                {{ chambreFroide.subtitle }}
+                            </h4>
                         </a>
+                        <p class="mb-0 text-muted">
+                            Relever de températures : {{ chambreFroide.temprelever }}
+                        </p>
+                        <p>
+                            Relever d'hygrométries : {{ chambreFroide.hygrorelever }}
+                        </p>
                         <a class="card-meta mt-auto"
                            href="#!"
                            style="margin-left: 10px;
@@ -62,9 +57,6 @@
                             <hr class="card-meta-diviser">
                             <p class="h6 text-uppercase text-muted mb-0 ms-auto">
                                 <time>Ajouté le : {{ chambreFroide.date|date('d/m/Y') }}</time>
-                            </p>
-                            <p class="h6 text-uppercase text-muted mb-0 ms-auto">
-                                Auteur : {{ chambreFroide.author }}
                             </p>
                         </a>
                     </div>
@@ -78,5 +70,23 @@
             {% do chambreFroides.setPageRange(2) %}
             {{ knp_pagination_render(chambreFroides, 'base/pagination.html.twig') }}
         </div>
+        {% if is_granted("ROLE_TECHNICIEN") %}
+            <a
+                    href="{{ path('add_sondes') }}"
+                    class="btn btn-primary"
+                    style="border-radius: 5px;
+               color: #FFF;
+               font-size: 1.2rem;
+               text-align: center;
+               width: 20%;
+               margin-top: 15px;
+               margin-bottom: 15px;
+               display: block;
+               margin-right: auto;
+               margin-left: auto;
+    ">
+                Ajouter une ChambreFroide / Sondes
+            </a>
+        {% endif %}
     </section>
 {% endblock %}

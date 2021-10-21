@@ -46,35 +46,37 @@
                 <!-- Card -->
                 <div class="card card-row shadow-light-lg mb-6">
                     <div class="row gx-0">
-                        <p class="col-12 col-md-6 bg-cover card-img-start" style="background-image: url({{ chambreFroide.file }}); ; margin-top: 15px">
+                        <p
+                            class="col-12 col-md-6 bg-cover card-img-start"
+                            style="background-image: url(img/placeholder.jpg);
+                                margin-top: 15px;
+                        ">
 
                             <!-- Image (placeholder) -->
-                            <img src="{{ chambreFroide.file }}" width="646" height="255" alt="...">
+                            <img src="" width="646" height="255" alt="...">
 
                         </p>
                         <div class="col-12 col-md-6">
 
                             <!-- Body -->
-                            <p class="card-body">
+                            <a href="{{ path('details_sondes', {'id': chambreFroide.id}) }}" class="card-body">
 
                                 <!-- Heading -->
-                                    <h3>Chambre froide n°: {{ chambreFroide.title}} </h3>
-                                    <h4>OFF du </h4>
+                                    <h3>{{ chambreFroide.title}} </h3>
+                                    <h4>{{ chambreFroide.subtitle }}</h4>
 
                                 <!-- Text -->
                                 <p class="mb-0 text-muted">
-                                    Relever de température : {{ chambreFroide.description|u.truncate(200, '...', false) }}
+                                    Relever de température : {{ chambreFroide.temperatures }}
                                 </p>
-                            </p>
+
+                                <p class="mb-0 text-muted">
+                                    Relever Hygrométriques : {{ chambreFroide.hygrometries }}
+                                </p>
+                            </a>
 
                             <!-- Meta -->
                             <p class="card-meta">
-
-                            <!-- Créateur -->
-                            <hr class="card-meta-divider">
-                            <p class="mb-0 text-muted">
-                                {{ chambreFroide.author }}
-                            </p>
 
                             <!-- Date d'ajout -->
                             <p class="h6 text-uppercase text-muted mb-0 ms-auto">
