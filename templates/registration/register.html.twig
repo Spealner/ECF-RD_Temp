@@ -2,6 +2,8 @@
 
 {% block title %}S'enregistrer{% endblock %}
 
+{% form_theme addSondesForm 'bootstrap_5_layout.html.twig' %}
+
 {% block body %}
     <!-- CONTENT -->
     <section
@@ -21,7 +23,10 @@
                     <p class="mb-6 text-muted" style="text-align: center">
                         Remplissez tous les champs
                     </p>
-                    <form method="post" class="mb-6">
+                    <form
+                        method="post"
+                        class="mb-6"
+                    >
                     {{ form_start(registrationForm) }}
                     {{ form_row(registrationForm.email) }}
                     {{ form_row(registrationForm.nom) }}

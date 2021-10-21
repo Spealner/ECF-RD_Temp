@@ -76,9 +76,16 @@
                                                     <p class="card-body">
 
                                                         <!-- Heading -->
-                                                    <h3>Officine : {{ user.nom }} </h3>
-                                                    <h3>Technicien : {{ user.nom }} </h3>
-                                                    </p>
+                                                    <td>
+                                                        {% for roles in user.roles %}
+                                                            {% if roles == "ROLE_OFFICINE" %}
+                                                                <h3>Officine : {{ user.nom }}</h3>
+                                                            {% elseif roles == "ROLE_TECHNICIEN" %}
+                                                                <h3>Technicien : {{ user.nom }}</h3>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </td>
+                                                    </h3>
                                                 </div>
                                             </div>
                                         </div>

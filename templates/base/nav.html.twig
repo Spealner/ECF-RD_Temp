@@ -59,10 +59,15 @@
                 </li>
             </ul>
             <form class="d-flex" style="margin-right: 15px">
-                <button class="btn btn-outline-success" type="submit">Nous contactez</button>
+                <a href="{{ path('contact') }}" class="btn btn-outline-success" type="submit">Nous contactez</a>
             </form>
             <form class="d-flex">
-                <button class="btn btn-outline-success" type="submit">S'enregistrer</button>
+                {% if is_granted('ROLE_USER') %}
+                <a href="{{ path('app_logout') }}" class="btn btn-outline-success" type="submit">Se deconnecter</a>
+                {% else %}
+                <a style="margin-right: 15px" href="{{ path('register') }}" class="btn btn-outline-success" type="submit">S'enregistrer</a>
+                <a href="{{ path('app_login') }}" class="btn btn-outline-success" type="submit">Se connecter</a>
+                {% endif %}
             </form>
         </div>
     </div>
