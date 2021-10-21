@@ -78,4 +78,8 @@ heroku config:set APP_ENV=prod
 - Suite
 ```npm
 composer require symfony/apache-pack
+git add .
+git commit -m "add configheroku"
+git push
+git push heroku master
 ```
