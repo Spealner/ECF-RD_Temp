@@ -50,14 +50,18 @@
                             Relever d'hygrométries : {{ chambreFroide.hygrorelever }}
                         </p>
                         <a class="card-meta mt-auto"
-                           href="#!"
+                           href="{{ path('details_sondes', {'id': chambreFroide.id}) }}"
                            style="margin-left: 10px;
                                   margin-bottom: 5px
                         ">
                             <hr class="card-meta-diviser">
                             <p class="h6 text-uppercase text-muted mb-0 ms-auto">
-                                <time>Ajouté le : {{ chambreFroide.date|date('d/m/Y') }}</time>
+                                <time>Date de relever : {{ chambreFroide.date|date('d/m/Y') }}</time>
                             </p>
+                            <p class="h6 text-uppercase text-muted mb-0 ms-auto">
+                                <time>Date d'ajout : {{ "now"|date('d/m/Y') }}</time>
+                            </p>
+                        </a>
                         </a>
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-# Project name: RD-Temp ECF
+# Nom du Project : RD-Temp ECF
 ***
 Projet ECF sur les témpératures.
 ***
@@ -16,6 +16,7 @@ https://github.com/Spealner/ECF-RD_Temp.git
 * Composer
 * Symfony CLI
 * Nodejs et npm
+* Chart.js
 
 Vous pouvez vérifier les pré-requis avec la commande suivante (de la CLI Symfony) :
 
@@ -43,4 +44,3 @@ symfony console doctrine:fixtures:load
 ```npm
 php bin/phpunit --testdox
 ```
-
