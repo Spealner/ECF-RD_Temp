@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../Projet ColisFroid/Projet Site ColisFroid/colisfroid/.idea/colisfroid.iml" filepath="$PROJECT_DIR$/../../Projet ColisFroid/Projet Site ColisFroid/colisfroid/.idea/colisfroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/rd-temp-ecf.iml" filepath="$PROJECT_DIR$/.idea/rd-temp-ecf.iml" />
     </modules>
   </component>
